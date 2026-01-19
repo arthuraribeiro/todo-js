@@ -11,7 +11,18 @@ addTaskBtn.addEventListener("click", () => {
   }
 
   tasks.push(taskText);
-  console.log(tasks);
+  renderTasks();
 
   taskInput.value = "";
 });
+
+function renderTasks() {
+  const taskList = document.getElementById("taskList");
+  taskList.innerHTML = "";
+
+  tasks.forEach((task, index) => {
+    const li = document.createElement("li");
+    li.textContent = task;
+    taskList.appendChild(li);
+  });
+}
