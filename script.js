@@ -24,5 +24,13 @@ function renderTasks() {
     const li = document.createElement("li");
     li.textContent = task;
     taskList.appendChild(li);
+
+    const deleteBtn = document.createElement("button");
+    deleteBtn.textContent = "X";
+    deleteBtn.addEventListener("click", () => {
+      tasks.splice(index, 1);
+      renderTasks();
+    });
+    li.appendChild(deleteBtn);
   });
 }
